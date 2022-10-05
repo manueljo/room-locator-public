@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  ARENT | Home-page
+{% endblock %}
+
+{% block content %}
+  <div class="img--covers">
+    <p class="hidden">Get to know us</p>
+  </div>
+  <div class="container">
+    <div id="about--info">
+      <center>
+        <h3 class="hidden">About Us</h3>
+        <div class="hidden">
+        <p>ARENT is a product of an idea flash, it is a free platform for users to find accommodation in a particular area on a map, the available rooms will appear as markers on the map. When the marker is clicked, a tooltip appears, it contains a link to another page which will give full detail of the selected apartment.</p>
+        <p>The platform also offer users the ability to upload items for sell or for hire, which other interested users can contact the one who uploaded the item for negotiation.</p>
+        </div><br>
+        <div class="hidden">
+          <img class="img--wrapper--me" src="{% static '/images/mj.jpg' %}" alt="">
+        </div>
+      </center>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,47 @@
+<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top" aria-label="Third navbar example">
+    <div class="container-fluid">
+      <a class="navbar-brand logo" href="{% url 'home' %}">ARENT</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample03" aria-controls="navbarsExample03" >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarsExample03">
+            <ul class="navbar-nav ms-auto mb-2 mb-sm-0">
+
+                <li class="nav-item around mx-1 mb-1">
+                <a class="nav-link" aria-current="page" href="{% url 'home' %}">Home</a>
+                </li>
+                <li class="nav-item around mx-1 mb-1">
+                <a class="nav-link" aria-current="page" href="{% url 'about' %}">About</a>
+                </li>
+                <li class="nav-item around mx-1 mb-1">
+                <a class="nav-link" aria-current="page" href="{% url 'service' %}">Services</a>
+                </li>
+                <li class="nav-item around mx-1 mb-1">
+                <a class="nav-link" aria-current="page" href="{% url 'contact' %}">Contact</a>
+                </li>
+            
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</button>
+                    <ul class="dropdown-menu dropdown-menu-light">
+                        <li><a class="dropdown-item" href="{% url 'buy' %}">Buy</a></li>
+                        <li><a class="dropdown-item" href="{% url 'sell' %}">Upload product</a></li>
+                        <li><a class="dropdown-item" href="{% url 'upload' %}">Add room</a></li>
+                        <li><a class="dropdown-item" href="{% url 'lease' %}">Hire</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        {% if request.user.is_authenticated %}
+                        <li><a class="dropdown-item" href="{% url 'profile' request.user.id %}">Profile</a></li>
+                        <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+                        {% else %}
+                        <li><a class="dropdown-item" href="{% url 'login' %}">Sign in</a></li>
+                        {% endif %}
+                    </ul>
+        
+                </div>
+                <li class="nav-item mx-1 mb-1">
+                    <a class="nav-link around--user " aria-current="page" href="{% url 'search' %}">Find room</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

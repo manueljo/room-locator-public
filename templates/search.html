@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+  find apartment | ARENT
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+  <div class="map--steps">
+    <div class="steps--wrapper">
+      <h3>Step I</h3>
+      <p>Click on a marker</p>
+    </div>
+    <div class="steps--wrapper">
+      <h3>Step II</h3>
+      <p>Click on "View Room" to see details</p>
+    </div>
+  </div>
+
+  <div class=" map--bottom">
+          {{mapping | safe}}
+  </div>
+</div>
+    
+
+{% endblock %}

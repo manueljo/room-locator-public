@@ -1,0 +1,22 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% load crispy_forms_tags %} 
+{% block title %} ARENT | Items upload page {% endblock title %} 
+
+{% block content %}
+<div class="img--covers">
+  <p class="hidden">Upload Items</p>
+</div>
+<div class="container">
+  <center>
+    <br>
+    <h3>Upload Items</h3>
+    
+  </center>
+  <form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %} {{form | crispy}}
+    <input type="submit" value="upload" class="btn btn-success" />
+  </form>
+</div>
+
+{% endblock %}

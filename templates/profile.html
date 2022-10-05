@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+  ARENT | profile page
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <div class="img--main--wrapper">
+        <div>
+            <img class="img--wrapper" src="{{request.user.avatar.url}}" alt="">
+        </div>
+
+{% for message in messages %}
+    {{message}}
+{% endfor %}
+    
+    </div>
+    <form action="" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form | crispy }}
+
+      <input type="submit" value="save change" class="btn btn-success" />
+    </form>
+  </div>
+  <div class="bottom--pad"></div>
+{% endblock %}

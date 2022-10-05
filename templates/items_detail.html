@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block title %}
+  ARENT | Home-page
+{% endblock %}
+
+{% block content %}
+  <div class="img--covers">
+    <p class="hidden">Buy or Rent items</p>
+  </div>
+  <div class="container">
+    <section class="thum--section">
+      <br />
+      <div class="thumbnail-display">
+        <img src="{{ items.first_image.url }}" class="rounded thumbnail" alt="..." />
+        <img src="{{ items.second_image.url }}" class="rounded thumbnail" alt="..." />
+        <img src="{{ items.third_image.url }}" class="rounded thumbnail" alt="..." />
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="content-area">
+          <div class="content">
+            <div class="content--wrap">
+              <h6>Category</h6>
+              {{ items.category }}
+            </div>
+          </div>
+          <div class="content">
+            <div class="content--wrap">
+              <h6>Price</h6>
+              &#8358;{{ items.price|floatformat:2|intcomma }}
+            </div>
+          </div>
+          <div class="content">
+            <div class="content--wrap">
+              <h6>Product name</h6>
+              <p>{{ items.product_name }}</p>
+            </div>
+          </div>
+          <div class="content">
+            <div class="content--wrap">
+              <h6>Contact number</h6>
+              <p>{{ items.contact_number }}</p>
+            </div>
+          </div>
+          <div class="content">
+            <div class="content--wrap">
+              <h6>Type</h6>
+              <p>{{ items.type }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {% comment %} <section class="description--section">
+      <div class="container description">
+        <h2>Room Description</h2>
+        <p>{{ room.description }}</p>
+        <h2>Room Address</h2>
+        <p>{{ room.address }}</p>
+      </div>
+    </section> {% endcomment %}
+    <div class="container">
+      <div class="contact">
+        <a href="tel:+2349155334411"><button class="btn btn-success">call agent</button></a>
+      </div>
+    </div>
+  </div>
+{% endblock %}

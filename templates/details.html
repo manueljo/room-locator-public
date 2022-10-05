@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load humanize %}
+
+{% block title %}
+  ARENT | Room details
+{% endblock %}
+
+{% block content %}
+  <section class="thum--section">
+    <div class="thumbnail-display">
+      <img src="{{ room.first_image.url }}" class="rounded thumbnail" alt="..." />
+      <img src="{{ room.second_image.url }}" class="rounded thumbnail" alt="..." />
+      <img src="{{ room.third_image.url }}" class="rounded thumbnail" alt="..." />
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="content-area">
+        <div class="content">
+          <div class="content--wrap">
+            <h2>Area</h2>
+            {{ room.area }}
+          </div>
+        </div>
+        <div class="content">
+          <div class="content--wrap">
+            <h2>Price</h2>
+            &#8358;{{ room.price|floatformat:2|intcomma }}
+          </div>
+        </div>
+        <div class="content">
+          <div class="content--wrap">
+            <h2>Available</h2>
+            {% if room.available %}
+              Yes
+            {% else %}
+              No
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="description--section">
+    <div class="container description">
+      <h2>Room Description</h2>
+      <p>{{ room.description }}</p>
+      <h2>Room Address</h2>
+      <p>{{ room.address }}</p>
+    </div>
+  </section>
+  <div class="container">
+    <div class="contact">
+      <a href="tel:+2349155334411"><button class="btn btn-success">call agent</button></a>
+    </div>
+  </div>
+{% endblock %}

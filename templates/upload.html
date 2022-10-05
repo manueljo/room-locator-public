@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+  ARENT | room upload page
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <center><h3>Upload Room location</h3>
+    <h6 class="form--info">Click on suppose room location on the map below to get the latitude and longitude.</h6></center>
+    <form action="" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{form | crispy}}
+      <input type="submit" value="Mark location" class="btn btn-success" />
+    </form>
+
+    <div class="map--bottom">{{ mapping|safe }}</div>
+  </div>
+{% endblock %}
